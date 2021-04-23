@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/agents")
@@ -40,7 +41,7 @@ public class AgentController {
         return new ResponseEntity<>(agentCreateResponse,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @PostMapping(
+    @PutMapping(
             path="/assign",
             consumes = {
                     MediaType.APPLICATION_JSON_VALUE
@@ -66,5 +67,15 @@ public class AgentController {
     )
     ResponseEntity<AgentDetails> getAgentDetails(@PathVariable String email) throws Exception{
         return new ResponseEntity<>(agentServiceInterface.getAgentDetails(email), HttpStatus.OK);
+    }
+
+    @GetMapping(
+            path="/getAgents",
+            produces = {
+                    MediaType.APPLICATION_JSON_VALUE
+            }
+    )
+    ResponseEntity<List<String>> getAgents()throws Exception{
+        return new ResponseEntity<>(agentServiceInterface.getAvailableAgents(),HttpStatus.OK);
     }
 }
