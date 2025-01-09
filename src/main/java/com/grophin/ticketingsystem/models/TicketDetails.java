@@ -3,7 +3,7 @@ package com.grophin.ticketingsystem.models;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 

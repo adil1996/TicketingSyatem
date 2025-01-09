@@ -2,7 +2,7 @@ package com.grophin.ticketingsystem.models;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "AssignedAgent")
